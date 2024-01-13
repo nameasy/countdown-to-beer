@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- Design by Stepan Lyubavtsev. http://mywonderful.website/ -->
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>Когда пить пиво</title>
+		<meta content="Когда пить пиво" name="title" />
+		<meta content="website" property="og:type" />
+		<meta content="https://nameasy.github.io/countdown-to-beer/" property="og:url" />
+		<meta content="Когда пить пиво" property="og:title" />
+		<meta content="summary_large_image" property="twitter:card" />
+		<meta content="https://nameasy.github.io/countdown-to-beer/" property="twitter:url" />
+		<meta content="Когда пить пиво" property="twitter:title" />
+		<link href="/countdown-to-beer/index.2080ea86.css" rel="stylesheet" />
+		<script src="https://unpkg.com/vue@3.3.4/dist/vue.global.prod.js"></script>
+	</head>
+
+	<body>
+		<div id="app" class="page">
+			<main class="main">
+				<div v-if="!started" class="start">
+					<div class="start__title">Когда пить пиво?</div>
+					<form @submit.prevent="startCountdown" class="form start__form">
+						<div class="form__group">
+							<input v-model="selectedDate" class="form__control input" id="date" type="date" />
+							<label class="form__label" for="date">Дата</label>
+						</div>
+						<div class="form__group">
+							<input v-model="selectedTime" class="form__control input" id="time" type="time" />
+							<label class="form__label" for="time">Время</label>
+						</div>
+						<button class="button start__button" type="submit">Начать обратный отсчёт</button>
+					</form>
+				</div>
+				<div v-else="" class="countdown">
+					<div class="countdown__timer">
+						<div class="countdown__text">Пить пиво через <span class="countdown__days">{{ days }}</span>, <span class="countdown__hours">{{ hours }}</span>, <span class="countdown__minutes">{{ minutes }}</span> и <span class="countdown__seconds">{{ seconds }}</span></div>
+					</div>
+					<button @click="copyUrl" class="button countdown__copy" :disabled="copied" type="button">{{ copied ? 'Скопировано' : 'Копировать' }}</button>
+					<button @click="resetCountdown" class="button countdown__reset" type="button">Сбросить</button>
+				</div>
+			</main>
+			<footer v-if="!started" class="footer">
+				<div class="footer__text">Ну что-то типа копирайта</div>
+			</footer>
+		</div>
+		<script src="/countdown-to-beer/index.a60d4756.js"></script>
+	</body>
+</html>
